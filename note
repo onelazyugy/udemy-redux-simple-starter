@@ -1,4 +1,9 @@
 email: ste.grider@gmail.com
 name: stephen grider
 
+youtube api key:
 AIzaSyAO0ePwZh7ztF_8XlXtgF2_YF4yDRVF1es
+
+state = is an object for a component
+every class component has a state, if a state changes, the compment will re-render as will as its child components
+
