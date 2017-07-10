@@ -1,6 +1,11 @@
 email: ste.grider@gmail.com
 name: stephen grider
 
+run app:
+npm install
+npm start
+refresh the page manually to see the changes
+
 youtube api key:
 AIzaSyAO0ePwZh7ztF_8XlXtgF2_YF4yDRVF1es
 
