@@ -10,19 +10,36 @@ class App extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { videos: [] };
+        this.state = { 
+            videos: [],
+            selectedVideo: null 
+        };
         
+        //this.selectedVideo = this.selectedVideo.bind(this);
+
         YTSearch({key: API_KEY, term: 'home depot'}, (videos) => {
-            this.setState({videos}); //es6 syntax due to key and value are same this.setState({videos}) or non es6 syntax this.setState({videos: videos})
+            this.setState({
+                videos,
+                selectedVideo: videos[0]
+            }); //es6 syntax due to key and value are same this.setState({videos}) or non es6 syntax this.setState({videos: videos})
         });
     }
+    
+    /*
+    selectedVideo(){
+        this.setState({
+            selectedVideo
+        });
+    }*/
 
     render() {
         return (
             <div>
                 <SearchBar />
-                <VideoDetail video={this.state.videos[0]}/>
-                <VideoList videos={this.state.videos}/>
+                <VideoDetail video={this.state.selectedVideo}/>
+                <VideoList 
+                    onVideoSelect={selectedVideo => this.setState({selectedVideo})}
+                    videos={this.state.videos}/>
             </div>
         );
     }
