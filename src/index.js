@@ -15,7 +15,7 @@ class App extends Component {
             selectedVideo: null 
         };
         
-        //this.selectedVideo = this.selectedVideo.bind(this);
+        this.onVideoSelect = this.onVideoSelect.bind(this);
 
         YTSearch({key: API_KEY, term: 'home depot'}, (videos) => {
             this.setState({
@@ -25,21 +25,18 @@ class App extends Component {
         });
     }
     
-    /*
-    selectedVideo(){
+    onVideoSelect(selectedVideo){
         this.setState({
             selectedVideo
         });
-    }*/
+    }
 
     render() {
         return (
             <div>
                 <SearchBar />
                 <VideoDetail video={this.state.selectedVideo}/>
-                <VideoList 
-                    onVideoSelect={selectedVideo => this.setState({selectedVideo})}
-                    videos={this.state.videos}/>
+                <VideoList onVideoSelect={this.onVideoSelect} videos={this.state.videos}/>
             </div>
         );
     }
