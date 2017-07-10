@@ -16,7 +16,11 @@ class SearchBar extends Component {
     }
 
     render() {
-        return <input onChange={this.onInputChange} />;
+        return ( 
+            <div>
+                <input onChange={this.onInputChange} />
+            </div>
+        );
     }
 }
 
